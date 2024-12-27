@@ -1,8 +1,12 @@
 # Hệ thống tưới tiêu tự động (v2)
 
 ## Mở Đầu
-Đây là dự án cuối kỳ cho môn học "Phát triển ứng dụng IoT" tại trường Đại học Khoa học Tự nhiên - Đại học Quốc gia Hà Nội (HUS-VNU) của tôi. Dự án được phát triển từ dự án giữa kỳ cùng tên, nhưng đã được cải tiến đôi chút.
+Đây là dự án cuối kỳ cho môn học "Phát triển ứng dụng IoT" tại trường Đại học Khoa học Tự nhiên - Đại học Quốc gia Hà Nội (HUS-VNU) của tôi. Dự án được phát triển từ [Dự án giữa kỳ](https://github.com/P8USea/IoT-MidTerm-Project) cùng tên, nhưng đã được cải tiến đôi chút.
 
+
+***Link [Node-RED flow](http://3.25.120.70:1880/#)***
+
+***Link [Node-RED Dashboard](http://3.25.120.70:1880/ui/#!/0?socketid=Wab-lakc8WGQwlHIAAAY)***
 ## Những thay đổi
 ### Phần cứng: 
 - Không có quá nhiều sự thay đổi ở phần cứng. Tôi vẫn sử dụng các linh kiện: 
