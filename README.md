@@ -23,6 +23,7 @@
   + Tạo một kho lưu trữ (Database) trên node-red server bằng MySQL phục vụ việc lưu trữ trong thời gian dài
   + Tích hợp thêm các API để giao tiếp client-server dễ dàng
   + Thêm dịch vụ gửi email cảnh báo tới người dùng khi có sự kiện
+  [APIs.webm](https://github.com/user-attachments/assets/80265d23-c2da-44de-9f5d-e6d0707e2ffa)
   + Tạo UI WebDashboard bằng node-red-dashboard
   + Bảo mật: Thêm chứng chỉ TLS cho server, thêm bước Authentication cho giao diện node-red flow
   + Code chính:
