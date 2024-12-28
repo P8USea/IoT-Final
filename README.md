@@ -14,16 +14,18 @@
   + L298N Motor Driver
   + Máy bơm nước mini (3-12V)
   + Cảm biến độ ẩm đất
-  + 2 cell Pin Lion 18650 3.7V 20A
+  + 2 cell Pin 18650 3.7V 20A
 - Ngoài ra, tôi còn thêm module cảm biến DHT22 để theo dõi nhiệt độ - độ ẩm ở lần này
 
 ### Phần mềm:
 - Đây là phần tôi có nhiều sự thay đổi và cải tiến nhất ở dự án lần này so với dự án giữa kỳ. Bao gồm:
   + Tạo một máy ảo từ một EC2 instance của AWS phục vụ việc chạy node-red server trên Internet thông qua IP công khai
+  [!EC2 Instance](/include/EC2\Instance.png)
   + Tạo một kho lưu trữ (Database) trên node-red server bằng MySQL phục vụ việc lưu trữ trong thời gian dài
+  [!Database](/include/Database.png)
   + Tích hợp thêm các API để giao tiếp client-server dễ dàng
+  + [APIs.webm](https://github.com/user-attachments/assets/dedd8da2-68b3-4967-9380-b61aea61e852)
   + Thêm dịch vụ gửi email cảnh báo tới người dùng khi có sự kiện
-  [APIs.webm](https://github.com/user-attachments/assets/80265d23-c2da-44de-9f5d-e6d0707e2ffa)
   + Tạo UI WebDashboard bằng node-red-dashboard
   + Bảo mật: Thêm chứng chỉ TLS cho server, thêm bước Authentication cho giao diện node-red flow
   + Code chính:
@@ -39,9 +41,17 @@
 ## Kết quả
 - Sau khi áp dụng các thay đổi đã kể trên, tôi có được:
   + Giao diện Web Server:
+  + [Dashboard.webm](https://github.com/user-attachments/assets/45dfb9f8-c857-4eff-8fb2-5ff64f0ecbe7)
+
   + Database:
+  + [Database.webm](https://github.com/user-attachments/assets/f3b4f325-f3b2-4b1a-a1a9-1ee755502874)
+
   + Điều khiển từ người dùng tới hệ thống tưới tiêu:
+  + [User-Control.webm](https://github.com/user-attachments/assets/9600de5a-b50b-43da-87b2-4c6670dd718b)
+  + 
   + Cảnh báo qua email khi có sự kiện:
+  + [Send-Mail.webm](https://github.com/user-attachments/assets/0476eb15-d845-4f93-8544-e60fe4ed50f7)
+  + 
   + Hoạt động của hệ thống nói chung:
 
 ## Kết Luận
