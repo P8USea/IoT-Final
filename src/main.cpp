@@ -62,7 +62,7 @@ void mqttCallback(char *topic, byte *payload, unsigned int length)
     Serial.printf("Message arrived from topic [%s]: %s\n", topic, message.c_str());
 
     //Xu ly thong tin cua cam bien
-    if(String(topic) == "sensor/moisture/data"){
+    if(String(topic) == "sensor/moisture/data" && auto_flag){
         soil_Moisture_Handler();
     }
     // Thay doi nguong do am tuoi nuoc
@@ -71,7 +71,7 @@ void mqttCallback(char *topic, byte *payload, unsigned int length)
     }
 
     //Neu nhan thong tin tuoi nuoc cua nguoi dung
-    if (String(topic) == "motor/control" && message == "ON" && auto_flag) {
+    if (String(topic) == "motor/control" && message == "ON") {
             doMotorStuff();
             Serial.println("Handy Watering...");
 
