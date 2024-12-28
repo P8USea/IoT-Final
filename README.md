@@ -20,11 +20,12 @@
 ### Phần mềm:
 - Đây là phần tôi có nhiều sự thay đổi và cải tiến nhất ở dự án lần này so với dự án giữa kỳ. Bao gồm:
   + Tạo một máy ảo từ một EC2 instance của AWS phục vụ việc chạy node-red server trên Internet thông qua IP công khai
-  [!EC2 Instance](/include/EC2\Instance.png)
+ ! EC2 Instance](./include/EC2\Instance.png)
   + Tạo một kho lưu trữ (Database) trên node-red server bằng MySQL phục vụ việc lưu trữ trong thời gian dài
-  [!Database](/include/Database.png)
-  + Tích hợp thêm các API để giao tiếp client-server dễ dàng
-  + [APIs.webm](https://github.com/user-attachments/assets/dedd8da2-68b3-4967-9380-b61aea61e852)
+    ![Database](./include/Database.png)
+  + Tích hợp thêm các API để giao tiếp client-server dễ dàng:
+  + [APIs.webm](https://github.com/user-attachments/assets/ff30f293-d87e-4699-b8df-cf1cdfe3b730)
+  
   + Thêm dịch vụ gửi email cảnh báo tới người dùng khi có sự kiện
   + Tạo UI WebDashboard bằng node-red-dashboard
   + Bảo mật: Thêm chứng chỉ TLS cho server, thêm bước Authentication cho giao diện node-red flow
