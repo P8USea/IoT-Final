@@ -6,16 +6,9 @@
 #include "DHT.h"
 #include "secrets/mqtt.h"
 #include <PubSubClient.h>
-
+#include "config.h"
 #include <Ticker.h>
 
-#define DHTPIN 33
-#define DHTTYPE DHT22
-#define ENA 25
-#define IN1 26
-#define IN2 27
-#define SPEED 192
-#define MOISTURE_PIN 35
 void soil_Moisture_Handler();
 void doMotorStuff();
 void warning(char* topic, String message);
@@ -23,25 +16,7 @@ namespace
 {
     const char *ssid = WiFiSecrets::ssid;
     const char *password = WiFiSecrets::pass;
-    const char *moisture_topic = "sensor/moisture/data";
-    const char *humidity_topic = "sensor/humidity";
-    const char *temperature_topic = "sensor/temperature";
-    const char *motor_topic = "motor";
-    const char *warning_topic = "warning";
-
-    int data = 0;
-    unsigned int warning_temp_up = 38;
-    unsigned int warning_temp_down = 10;
-    unsigned int warning_hum = 70;
-    unsigned int warning_moist_up = 30;
-    unsigned int warning_moist_down = 80; 
-
-    int reliability_count = 0; //Bien dem kiem tra do on dinh cua cam bien
-    int moisture_threshold = 70; //Nguong am de tuoi nuoc
-    int noise_threshold = 3; //Nguong sai so trong truong hop nhieu tin hieu
-    int sensor_last = 0;
-    long last_warning = millis();
-    boolean auto_flag = true;
+  
 }
 
 WiFiClientSecure tlsClient;
@@ -71,7 +46,7 @@ void mqttCallback(char *topic, byte *payload, unsigned int length)
     }
 
     //Neu nhan thong tin tuoi nuoc cua nguoi dung
-    if (String(topic) == "motor/control" && message == "ON") {
+    if (String(topic) == "motor/control" && message == "IRRIGATE") {
             doMotorStuff();
             Serial.println("Handy Watering...");
 
@@ -80,15 +55,15 @@ void mqttCallback(char *topic, byte *payload, unsigned int length)
     if(String(topic) == "motor/auto"){
         auto_flag = bool(message);
     }
-    if(millis() - last_warning > 60*1000){
+    if(millis() - last_warning > 5*60*1000){
         //Canh bao nhiet do
     if(String(topic) == "sensor/temperature" 
     && (message.toFloat() > warning_temp_up || message.toFloat() < warning_temp_down)){
         warning("warning/temp", "Temperature Issue!");
     }
     //Canh bao do am dat
-    if(String(topic) == "sensor/moisture" 
-    && (message.toFloat() > warning_moist_up || message.toFloat() < warning_moist_down)){
+    if(String(topic) == "sensor/moisture/data" 
+    && (message.toFloat() < warning_moist_up || message.toFloat() > warning_moist_down)){
         warning("warning/moisture","Moisture Issue!");
     }
     // Canh bao do am khong khi
@@ -127,13 +102,12 @@ void mqttReconnect()
 
 
 //MCU dua ra quyet dinh dua tren cam bien
-
 void soil_Moisture_Handler(){
-    int sensor_now = data;
+    int moisture_now = moisture;
     //Neu khong bi bien dong do nhieu trong 10 lan dem
     if(reliability_count >= 10){
         //Neu dat du nguong am de tuoi nuoc
-        if(data < moisture_threshold){
+        if(moisture < moisture_threshold){
             doMotorStuff();
             Serial.println("Watering...");
         }
@@ -142,11 +116,11 @@ void soil_Moisture_Handler(){
     }
     else{
         //Neu lan do truoc va lan do sau khong bi chenh lech qua nhieu do nhieu
-        if(abs(sensor_last - sensor_now) < noise_threshold){
+        if(abs(moisture_last - moisture_now) < noise_threshold){
             //Tang bien dem tin cay
             reliability_count++;
         }
-        sensor_last = sensor_now;
+        moisture_last = moisture_now;
     }
     
 }
@@ -167,7 +141,7 @@ void doMotorStuff(){
 
     delay(1000);
 }
-
+//Ham doc/gui gia tri nhiet do - do am khong khi
 void DHT22_Reader(){
     float humidity = dht.readHumidity();
     float temperature = dht.readTemperature();
@@ -182,14 +156,24 @@ void DHT22_Reader(){
     mqttClient.publish(humidity_topic, String(humidity).c_str(), false);
 
 }
+//Ham doc/gui gia tri nhiet do - do am dat
 void soil_Moisture_Reader(){
     int value = analogRead(MOISTURE_PIN);
-    data = map(value, 0, 4095, 0, 100); // map gia tri 0-12 bit ->> 0-100%
-    mqttClient.publish(moisture_topic, String(data).c_str(), false);
+    moisture = map(value, 0, 4095, 0, 100); // map gia tri 0-12 bit ->> 0-100%
+    mqttClient.publish(moisture_topic, String(moisture).c_str(), false);
 
 }
+//Ham gui canh bao
 void warning(char* topic, String message){
     mqttClient.publish(topic, message.c_str(), false);
+}
+//Ham ngu? cua ESP
+void goToSleep(bool Sleep){
+    if(Sleep)
+    {
+        delay(AWAKE_TIME);
+        esp_deep_sleep(DEEP_SLEEP_TIME);
+    }
 }
 void setup()
 {
@@ -206,8 +190,8 @@ void setup()
     mqttClient.setCallback(mqttCallback);
     mqttClient.setServer(MQTT::broker, MQTT::port);
 
-    soil_Moisture_Publish_Ticker.attach(5, soil_Moisture_Reader);
-    DHT22_Publish_Ticker.attach(5, DHT22_Reader);
+    soil_Moisture_Publish_Ticker.attach(10, soil_Moisture_Reader);
+    DHT22_Publish_Ticker.attach(10, DHT22_Reader);
 }
 
 void loop()
@@ -218,4 +202,6 @@ void loop()
         mqttReconnect();
     }
     mqttClient.loop();
+
+    goToSleep(SLEEP);
 }
