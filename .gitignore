@@ -16,4 +16,4 @@ package-lock.json
 .vscode/
 
 .node-red/.config*
-.node-red/setting.js
+.node-red/settings.js
