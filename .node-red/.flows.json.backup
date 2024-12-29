@@ -1,0 +1,1856 @@
+[
+    {
+        "id": "2f177b71cb261a15",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "908ff483ce1c760b",
+        "type": "MySQLdatabase",
+        "name": "sensor_readings",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "sensor_data",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "bb4d148084c498f0",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "isrgrootx1.pem",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "85ec4455282296a8",
+        "type": "mqtt-broker",
+        "name": "MyMQTT",
+        "broker": "7c37a402b8fa4228953fa73232f36021.s1.eu.hivemq.cloud",
+        "port": "8883",
+        "tls": "bb4d148084c498f0",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6054a34e6bc2d149",
+        "type": "ui_tab",
+        "name": "Sensor",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "77a42ab0aca7efda",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ebebf10769c21b34",
+        "type": "ui_group",
+        "name": "Moisture",
+        "tab": "6054a34e6bc2d149",
+        "order": 1,
+        "disp": true,
+        "width": 5,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cfef21f79a754910",
+        "type": "MySQLdatabase",
+        "name": "user",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "sensor_data",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "5fd1163298c3b770",
+        "type": "ui_tab",
+        "name": "Control",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ef7eaacc90fb460f",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "6054a34e6bc2d149",
+        "order": 4,
+        "disp": true,
+        "width": 5,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "334d4153d31ec0f3",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "6054a34e6bc2d149",
+        "order": 5,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "024f1aa05491398c",
+        "type": "ui_tab",
+        "name": "User",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "590a8a436fd9ed44",
+        "type": "ui_tab",
+        "name": "History",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "eb324acf41feec4e",
+        "type": "ui_group",
+        "name": "Sensor",
+        "tab": "590a8a436fd9ed44",
+        "order": 1,
+        "disp": true,
+        "width": 18,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cde6f7ddbc0699fa",
+        "type": "ui_group",
+        "name": "Warning",
+        "tab": "590a8a436fd9ed44",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a085143861f264db",
+        "type": "ui_group",
+        "name": "Motor",
+        "tab": "5fd1163298c3b770",
+        "order": 2,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6c19eeecb9b937df",
+        "type": "ui_group",
+        "name": "User",
+        "tab": "024f1aa05491398c",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d3e2cad8e839844d",
+        "type": "ui_spacer",
+        "z": "2f177b71cb261a15",
+        "name": "spacer",
+        "group": "a085143861f264db",
+        "order": 1,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "2689a7fef05ff046",
+        "type": "ui_spacer",
+        "z": "2f177b71cb261a15",
+        "name": "spacer",
+        "group": "a085143861f264db",
+        "order": 2,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "dac2ed1810b9ddd3",
+        "type": "ui_spacer",
+        "z": "2f177b71cb261a15",
+        "name": "spacer",
+        "group": "a085143861f264db",
+        "order": 4,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "918e5b71c4aab085",
+        "type": "ui_spacer",
+        "z": "2f177b71cb261a15",
+        "name": "spacer",
+        "group": "a085143861f264db",
+        "order": 5,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "7504c1ba353db093",
+        "type": "ui_spacer",
+        "z": "2f177b71cb261a15",
+        "name": "spacer",
+        "group": "a085143861f264db",
+        "order": 6,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "2987d7526cfbad40",
+        "type": "ui_spacer",
+        "z": "2f177b71cb261a15",
+        "name": "spacer",
+        "group": "a085143861f264db",
+        "order": 9,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "98533783bb96c9c9",
+        "type": "ui_spacer",
+        "z": "2f177b71cb261a15",
+        "name": "spacer",
+        "group": "a085143861f264db",
+        "order": 10,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "1e5117f539bcc54b",
+        "type": "ui_tab",
+        "name": "Forecast",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "07e3a960e15853ed",
+        "type": "ui_group",
+        "name": "Temperature - Humidity Now",
+        "tab": "1e5117f539bcc54b",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5f05c63857764233",
+        "type": "mqtt in",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "topic": "sensor/moisture/data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "85ec4455282296a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "773d6245ec318b61",
+                "63ef922580f6c9a6",
+                "dc34509368e28b5b",
+                "5bf4fe8b31592745"
+            ]
+        ]
+    },
+    {
+        "id": "773d6245ec318b61",
+        "type": "debug",
+        "z": "2f177b71cb261a15",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "63ef922580f6c9a6",
+        "type": "ui_chart",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "group": "eb324acf41feec4e",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "label": "Moisture Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 320,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc34509368e28b5b",
+        "type": "ui_text",
+        "z": "2f177b71cb261a15",
+        "group": "ebebf10769c21b34",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Moisture(%): ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 310,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "381fbadf1320ea88",
+        "type": "mqtt out",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "topic": "motor/control",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "85ec4455282296a8",
+        "x": 350,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "c5fbea4ab075e645",
+        "type": "ui_button",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "group": "a085143861f264db",
+        "order": 3,
+        "width": 4,
+        "height": 2,
+        "passthru": false,
+        "label": "Tưới nước",
+        "tooltip": "",
+        "color": "Cyan",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-tint",
+        "payload": "IRRIGATE",
+        "payloadType": "str",
+        "topic": "motor",
+        "topicType": "msg",
+        "x": 90,
+        "y": 2060,
+        "wires": [
+            [
+                "381fbadf1320ea88",
+                "b4f3a533a298225e"
+            ]
+        ]
+    },
+    {
+        "id": "5bf4fe8b31592745",
+        "type": "ui_gauge",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "group": "ebebf10769c21b34",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Moisture Gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#28e628",
+            "#e6e600",
+            "#f63737"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 320,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "53b87653c1f9a918",
+        "type": "mqtt in",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "topic": "sensor/temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "85ec4455282296a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 510,
+        "y": 160,
+        "wires": [
+            [
+                "96b58fa7954a1370",
+                "9af75ecbddb1d4c9",
+                "b91f820299655b6d",
+                "903d21628a0f9e79"
+            ]
+        ]
+    },
+    {
+        "id": "af69e3143ac16132",
+        "type": "mqtt in",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "topic": "sensor/humidity",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "85ec4455282296a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 400,
+        "wires": [
+            [
+                "fcfb8d914a2259b1",
+                "bc0a5a0d69fe5a04",
+                "f556ea4f16b50284",
+                "6b40d9fd5cc471bb"
+            ]
+        ]
+    },
+    {
+        "id": "96b58fa7954a1370",
+        "type": "debug",
+        "z": "2f177b71cb261a15",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9af75ecbddb1d4c9",
+        "type": "ui_gauge",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "group": "334d4153d31ec0f3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature Gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#255ee4",
+            "#e6e600",
+            "#ff1100"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 740,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b91f820299655b6d",
+        "type": "ui_chart",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "group": "eb324acf41feec4e",
+        "order": 2,
+        "width": 6,
+        "height": 4,
+        "label": "Temperature Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 730,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "903d21628a0f9e79",
+        "type": "ui_text",
+        "z": "2f177b71cb261a15",
+        "group": "334d4153d31ec0f3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperature(%):",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 730,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "fcfb8d914a2259b1",
+        "type": "debug",
+        "z": "2f177b71cb261a15",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "f556ea4f16b50284",
+        "type": "ui_chart",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "group": "eb324acf41feec4e",
+        "order": 3,
+        "width": 6,
+        "height": 4,
+        "label": "Humidity Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 380,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b40d9fd5cc471bb",
+        "type": "ui_text",
+        "z": "2f177b71cb261a15",
+        "group": "ef7eaacc90fb460f",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Humidity(%): ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 370,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "bc0a5a0d69fe5a04",
+        "type": "ui_gauge",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "group": "ef7eaacc90fb460f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity Gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#2bbdee",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 380,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e0753a8dda3f49e7",
+        "type": "mysql",
+        "z": "2f177b71cb261a15",
+        "mydb": "908ff483ce1c760b",
+        "name": "DB",
+        "x": 670,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "369489e25314a8f5",
+        "type": "function",
+        "z": "2f177b71cb261a15",
+        "name": "Ghi vào DB",
+        "func": "msg.topic = \"INSERT INTO sensor_readings (moisture, temperature, humidity, timestamp) VALUES (:moisture, :temperature, :humidity, :timestamp);\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 660,
+        "wires": [
+            [
+                "e0753a8dda3f49e7"
+            ]
+        ]
+    },
+    {
+        "id": "f136a739a6e04f9a",
+        "type": "function",
+        "z": "2f177b71cb261a15",
+        "name": "Đợi payload",
+        "func": "//Đoạn code này ghi data vào DB tại 1 timestamp\n//Vì các data từ nhiều topic có thể được gửi tại các\n//thời điểm khác nhau nên cần dùng chung 1 timestamp\n//duy nhất để lưu trữ 1 cách đồng bộ\n\n\n// Lấy dữ liệu đã lưu tạm thời từ bộ nhớ global context\nconst sensorData = global.get(\"sensor\") || {};\n//Tách chuỗi topic MQTT thành mảng dựa trên dấu /.\n//Sẽ có kiểu (sensor, moisture) và lấy ra \"moisture\" là pt đầu\nsensorData[msg.topic.split(\"/\")[1]] = msg.payload;\n\n// Check xem data đã nhận được hết từ các topic\nif (sensorData.moisture && sensorData.temperature && sensorData.humidity) {\n    const timestamp = new Date(); \n    msg.payload = {\n        moisture: parseFloat(sensorData.moisture),\n        temperature: parseFloat(sensorData.temperature),\n        humidity: parseFloat(sensorData.humidity),\n        timestamp: timestamp\n    };\n    global.set(\"sensor\", {}); // Xóa data của global\n    return msg; \n}\nglobal.set(\"sensor\", sensorData); // Ghi data vào biến global nếu chưa đủ\nreturn null; // Đợi thêm data từ các topic\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 660,
+        "wires": [
+            [
+                "369489e25314a8f5"
+            ]
+        ]
+    },
+    {
+        "id": "af324e9137cfaab6",
+        "type": "mqtt in",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "topic": "sensor/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "85ec4455282296a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 660,
+        "wires": [
+            [
+                "f136a739a6e04f9a"
+            ]
+        ]
+    },
+    {
+        "id": "bc7b6adc70d00624",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Ghi dữ liệu vào DB",
+        "info": "",
+        "x": 130,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "085504217b102aaa",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Tưới nước thủ công",
+        "info": "",
+        "x": 110,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "165cf5052d0b5409",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Nhận/hiển thị data của độ ẩm đất",
+        "info": "",
+        "x": 150,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ddf40a6cb3dc2fed",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Nhận/hiển thị data của nhiệt độ",
+        "info": "",
+        "x": 550,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b604fe7d410a4ea9",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Nhận/hiển thị data của độ ẩm không khí",
+        "info": "",
+        "x": 210,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a0df5ee4141a8bc0",
+        "type": "inject",
+        "z": "2f177b71cb261a15",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 780,
+        "wires": [
+            [
+                "cfc43790d5765fc4"
+            ]
+        ]
+    },
+    {
+        "id": "cfc43790d5765fc4",
+        "type": "function",
+        "z": "2f177b71cb261a15",
+        "name": "Chọn tất cả",
+        "func": "msg.topic = \"SELECT * FROM sensor_readings;\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 780,
+        "wires": [
+            [
+                "0173fd9066ba6de5"
+            ]
+        ]
+    },
+    {
+        "id": "0173fd9066ba6de5",
+        "type": "mysql",
+        "z": "2f177b71cb261a15",
+        "mydb": "908ff483ce1c760b",
+        "name": "DB",
+        "x": 450,
+        "y": 780,
+        "wires": [
+            [
+                "8d3b0fa8b6a4c5dc"
+            ]
+        ]
+    },
+    {
+        "id": "8d3b0fa8b6a4c5dc",
+        "type": "debug",
+        "z": "2f177b71cb261a15",
+        "name": "Debug DB",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "2197efa5f4007667",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Đọc dữ liệu DB",
+        "info": "",
+        "x": 120,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "f201ddaac2811e5f",
+        "type": "e-mail",
+        "z": "2f177b71cb261a15",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "Gửi mail",
+        "x": 1160,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "1b5f0cef895efab5",
+        "type": "mqtt in",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "topic": "warning/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "85ec4455282296a8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 940,
+        "wires": [
+            [
+                "d6df15b75bcc220c",
+                "8b02a93565a370fb"
+            ]
+        ]
+    },
+    {
+        "id": "01256fbf78ff2514",
+        "type": "mqtt out",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "topic": "warning/temp",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "85ec4455282296a8",
+        "x": 500,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "d6df15b75bcc220c",
+        "type": "debug",
+        "z": "2f177b71cb261a15",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "bdf1c46d9efe3728",
+        "type": "inject",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Warning/temp",
+        "payload": "It burns out!!!",
+        "payloadType": "str",
+        "x": 200,
+        "y": 1200,
+        "wires": [
+            [
+                "01256fbf78ff2514"
+            ]
+        ]
+    },
+    {
+        "id": "a198f846c90918f9",
+        "type": "mqtt out",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "topic": "warning/humidity",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "85ec4455282296a8",
+        "x": 490,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "a0de6f7feb376b11",
+        "type": "inject",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Warning/humidity",
+        "payload": "It dries out!!!",
+        "payloadType": "str",
+        "x": 180,
+        "y": 1260,
+        "wires": [
+            [
+                "a198f846c90918f9"
+            ]
+        ]
+    },
+    {
+        "id": "0f374795d5e5a618",
+        "type": "mqtt out",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "topic": "warning/moisture",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "85ec4455282296a8",
+        "x": 490,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "8b457c2484ad97b4",
+        "type": "inject",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Warning/moisture",
+        "payload": "It dies all out!!!",
+        "payloadType": "str",
+        "x": 130,
+        "y": 1320,
+        "wires": [
+            [
+                "0f374795d5e5a618"
+            ]
+        ]
+    },
+    {
+        "id": "acb60f6ed4dddd8d",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Gửi email tới người dùng",
+        "info": "",
+        "x": 150,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "892225e989272787",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Giả lập cảnh báo",
+        "info": "Vì tôi không muốn đưa linh kiện của mình\nvào tình thế nguy hiểm cũng như là cảnh\nbáo cũng không xuất hiện quá thường \nxuyên nên chúng ta sẽ giả lập các cảnh\nbáo =))",
+        "x": 140,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "aaf25fdc9aab028c",
+        "type": "ui_form",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "label": "Nhập email để nhận được các thông báo từ hệ thống",
+        "group": "6c19eeecb9b937df",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "",
+                "value": "Email",
+                "type": "email",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "Email": ""
+        },
+        "payload": "",
+        "submit": "Xác Nhận",
+        "cancel": "Hủy",
+        "topic": "topic.email",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 220,
+        "y": 1500,
+        "wires": [
+            [
+                "92104332015cbdca",
+                "7b1fea581f601f3d"
+            ]
+        ]
+    },
+    {
+        "id": "92104332015cbdca",
+        "type": "debug",
+        "z": "2f177b71cb261a15",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "7b1fea581f601f3d",
+        "type": "function",
+        "z": "2f177b71cb261a15",
+        "name": "Ghi email vào DB",
+        "func": "\nmsg.topic = 'INSERT INTO user(email) VALUES (\"' + msg.payload.Email + '\");';\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 1500,
+        "wires": [
+            [
+                "d2f4f37ead515219"
+            ]
+        ]
+    },
+    {
+        "id": "d2f4f37ead515219",
+        "type": "mysql",
+        "z": "2f177b71cb261a15",
+        "mydb": "cfef21f79a754910",
+        "name": "email-DB",
+        "x": 740,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e369945bb5129467",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Đăng ký nhận email",
+        "info": "",
+        "x": 110,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "8b02a93565a370fb",
+        "type": "function",
+        "z": "2f177b71cb261a15",
+        "name": "Chọn tất cả email",
+        "func": "flow.set(\"warning\", msg.payload);\nmsg.topic = \"SELECT * FROM user;\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 940,
+        "wires": [
+            [
+                "fd0bbe5998a7c059"
+            ]
+        ]
+    },
+    {
+        "id": "fd0bbe5998a7c059",
+        "type": "mysql",
+        "z": "2f177b71cb261a15",
+        "mydb": "cfef21f79a754910",
+        "name": "email DB",
+        "x": 440,
+        "y": 940,
+        "wires": [
+            [
+                "a97feb839db554b7"
+            ]
+        ]
+    },
+    {
+        "id": "a97feb839db554b7",
+        "type": "function",
+        "z": "2f177b71cb261a15",
+        "name": "Lấy từng địa chỉ email",
+        "func": "\nif (msg.payload && Array.isArray(msg.payload)) {\n    msg.emailList = msg.payload.map(row => row.email); // Trích xuất trường 'email'\n} else {\n    node.error(\"No emails found or invalid payload format\", msg);\n    return null;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 940,
+        "wires": [
+            [
+                "2cfc0269ad0d56fb"
+            ]
+        ]
+    },
+    {
+        "id": "2cfc0269ad0d56fb",
+        "type": "split",
+        "z": "2f177b71cb261a15",
+        "name": "Chia bởi dấu \",\"",
+        "splt": ",",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "property": "payload",
+        "x": 820,
+        "y": 940,
+        "wires": [
+            [
+                "f9d04ac6aacac0e5"
+            ]
+        ]
+    },
+    {
+        "id": "f9d04ac6aacac0e5",
+        "type": "function",
+        "z": "2f177b71cb261a15",
+        "name": "Nội dung email",
+        "func": "msg.to = msg.payload.email\nmsg.topic = \"Warning!!!\"\nmsg.payload = flow.get(\"warning\")\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 940,
+        "wires": [
+            [
+                "f201ddaac2811e5f"
+            ]
+        ]
+    },
+    {
+        "id": "525a647eebd0b909",
+        "type": "ui_slider",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "label": "Thay đổi",
+        "tooltip": "",
+        "group": "a085143861f264db",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 80,
+        "y": 1760,
+        "wires": [
+            [
+                "8e8874c89167024b"
+            ]
+        ]
+    },
+    {
+        "id": "3bb237e77bdc3757",
+        "type": "mqtt out",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "topic": "sensor/moisture/change",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "85ec4455282296a8",
+        "x": 630,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "7d760c3bbcbbf081",
+        "type": "ui_button",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "group": "a085143861f264db",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Xác nhận",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "change",
+        "payloadType": "flow",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 400,
+        "y": 1760,
+        "wires": [
+            [
+                "3bb237e77bdc3757",
+                "815b21a89621ab13"
+            ]
+        ]
+    },
+    {
+        "id": "8e8874c89167024b",
+        "type": "function",
+        "z": "2f177b71cb261a15",
+        "name": "Giữ giá trị",
+        "func": "flow.set(\"change\", msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1760,
+        "wires": [
+            [
+                "7d760c3bbcbbf081"
+            ]
+        ]
+    },
+    {
+        "id": "815b21a89621ab13",
+        "type": "ui_toast",
+        "z": "2f177b71cb261a15",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Thông báo đã set xong",
+        "x": 620,
+        "y": 1820,
+        "wires": []
+    },
+    {
+        "id": "0ffad90d5893b755",
+        "type": "ui_switch",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "label": "Tự động tưới",
+        "tooltip": "",
+        "group": "a085143861f264db",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 90,
+        "y": 1940,
+        "wires": [
+            [
+                "434342ac55c80fe0",
+                "a24cd4e928223c86"
+            ]
+        ]
+    },
+    {
+        "id": "434342ac55c80fe0",
+        "type": "mqtt out",
+        "z": "2f177b71cb261a15",
+        "name": "",
+        "topic": "motor/auto",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "85ec4455282296a8",
+        "x": 350,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "3710859d99a0939a",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Thay đổi ngưỡng ẩm",
+        "info": "",
+        "x": 120,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "6448e3b076c1c1c0",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Bật/tắt tự động tưới",
+        "info": "",
+        "x": 110,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "a24cd4e928223c86",
+        "type": "function",
+        "z": "2f177b71cb261a15",
+        "name": "Map lại giá trị",
+        "func": "if(msg.payload){\n    msg.payload = \"ON\"\n}\nelse{\n    msg.payload = \"OFF\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 1880,
+        "wires": [
+            [
+                "79b55c18a79a7f9b"
+            ]
+        ]
+    },
+    {
+        "id": "79b55c18a79a7f9b",
+        "type": "ui_toast",
+        "z": "2f177b71cb261a15",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 550,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "b4f3a533a298225e",
+        "type": "ui_toast",
+        "z": "2f177b71cb261a15",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 370,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "inject1",
+        "type": "inject",
+        "z": "2f177b71cb261a15",
+        "name": "Fetch Weather",
+        "props": [],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "x": 80,
+        "y": 2380,
+        "wires": [
+            [
+                "weather1"
+            ]
+        ]
+    },
+    {
+        "id": "weather1",
+        "type": "openweathermap",
+        "z": "2f177b71cb261a15",
+        "name": "Current Weather",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Hanoi",
+        "country": "Vietnam",
+        "language": "en",
+        "x": 260,
+        "y": 2380,
+        "wires": [
+            [
+                "function1"
+            ]
+        ]
+    },
+    {
+        "id": "function1",
+        "type": "function",
+        "z": "2f177b71cb261a15",
+        "name": "Extract Data",
+        "func": "msg.payload = {\n    temperature: msg.payload.tempc,\n    humidity: msg.payload.humidity,\n    description: msg.payload.weather[0].description\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 2380,
+        "wires": [
+            [
+                "ui_text1",
+                "ui_gauge1",
+                "58938ecd1e13eb30",
+                "94685e113c66f491"
+            ]
+        ]
+    },
+    {
+        "id": "ui_text1",
+        "type": "ui_text",
+        "z": "2f177b71cb261a15",
+        "group": "07e3a960e15853ed",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Temp Display",
+        "label": "Temperature (°C)",
+        "format": "{{msg.payload.temperature}} °C",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 720,
+        "y": 2280,
+        "wires": []
+    },
+    {
+        "id": "ui_gauge1",
+        "type": "ui_gauge",
+        "z": "2f177b71cb261a15",
+        "name": "Temp Gauge",
+        "group": "07e3a960e15853ed",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "Temperature",
+        "format": "{{msg.payload.temperature}} °C",
+        "min": "0",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 710,
+        "y": 2320,
+        "wires": []
+    },
+    {
+        "id": "58938ecd1e13eb30",
+        "type": "ui_text",
+        "z": "2f177b71cb261a15",
+        "group": "07e3a960e15853ed",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Humidity Display",
+        "label": "Humidity (%)",
+        "format": "{{msg.payload.humidity}} %",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 730,
+        "y": 2420,
+        "wires": []
+    },
+    {
+        "id": "94685e113c66f491",
+        "type": "ui_gauge",
+        "z": "2f177b71cb261a15",
+        "name": "Humidity Gauge",
+        "group": "07e3a960e15853ed",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "",
+        "label": "Humidity",
+        "format": "{{msg.payload.humidity}} %",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 720,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "2821811f943fd0f6",
+        "type": "comment",
+        "z": "2f177b71cb261a15",
+        "name": "Thời tiết lúc này",
+        "info": "",
+        "x": 80,
+        "y": 2320,
+        "wires": []
+    }
+]
