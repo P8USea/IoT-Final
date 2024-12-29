@@ -4,7 +4,6 @@
 .vscode/launch.json
 .vscode/ipch
 
-node_modules/
 package-lock.json
 
 .env
