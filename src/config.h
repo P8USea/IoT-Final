@@ -10,7 +10,7 @@
 //Cau hinh che do ngu?
 #define DEEP_SLEEP_TIME 60000000 //10p
 #define AWAKE_TIME 180000 //3p
-#define SLEEP true
+#define SLEEP false
 
 //Cac topic
 const char *moisture_topic = "sensor/moisture/data";

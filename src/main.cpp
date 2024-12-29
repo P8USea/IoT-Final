@@ -46,7 +46,7 @@ void mqttCallback(char *topic, byte *payload, unsigned int length)
     }
 
     //Neu nhan thong tin tuoi nuoc cua nguoi dung
-    if (String(topic) == "motor/control" && message == "IRRIGATE") {
+    if (String(topic) == "motor/control" && message.equals("IRRIGATE")) {
             doMotorStuff();
             Serial.println("Handy Watering...");
 
