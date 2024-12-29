@@ -3,23 +3,18 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
-.config*
 
 node_modules/
 package-lock.json
-
-.config*
-.settings/
-*settings
-flows*
 
 .env
 
 *.log
 *.tmp
 
-.DS_Store
-Thumbs.db
 *.swp
 .idea/
 .vscode/
+
+.node-red/.config*
+.node-red/setting.js
